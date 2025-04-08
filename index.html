@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pose Classifier</title>
+  <link rel="stylesheet" href="src/style.css">
+  <script defer type="module" src="/src/script.js"></script>
+</head>
+
+<body>
+
+<section>
+  <h1>Pose Classifier - Y M C A</h1>
+
+
+  <div class="trainSection">
+      <button id="webcamButton">START WEBCAM</button>
+      <button id="logButton">LOG DATA</button>
+
+      <label for="rps">Choose Pose:</label>
+      <select id="rps" name="rps">
+        <option value="Y">Y</option>
+        <option value="M">M</option>
+        <option value="C">C</option>
+        <option value="A">A</option>
+      </select>
+
+      <button id="classifyButton">Classify Pose</button>
+  </div>
+  <button id="jsonButton">Download JSON</button>
+
+
+  <label for="testLabel">Test label:</label>
+  <select id="testLabel">
+    <option value="Y">Y</option>
+    <option value="M">M</option>
+    <option value="C">C</option>
+    <option value="A">A</option>
+  </select>
+  <button id="logTestData">Log Test Data</button>
+  <button id="runTest">Run Accuracy Test</button>
+
+  <!-- Display classified letter -->
+  <div id="classificationResult"></div>
+
+
+  <div class="videoView">
+    <div style="position: relative;">
+      <video id="webcam" style="position: absolute;" muted autoplay playsinline></video>
+      <canvas id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
+      <div id="myimage">Tracking</div>
+    </div>
+  </div>
+
+</section>
+</body>
+
+</html>
