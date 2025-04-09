@@ -147,6 +147,8 @@ function classifyHandPose(results) {
     if (results.landmarks && results.landmarks.length > 0) {
         for (let pose of results.landmarks) {
             const flatArray = pose.flatMap(point => [point.x, point.y, point.z]);
+            console.log(flatArray);
+            console.log(machine);
             const classification = machine.classify(flatArray);
             console.log(`The pose is classified as: ${classification}`);
 
@@ -201,14 +203,22 @@ document.getElementById('classifyButton').addEventListener('click', () => {
 document.getElementById("runTest").addEventListener("click", () => {
     let correct = 0;
 
-
+    // bijhouden in console hoe veel en wat fout is gegaan
+    const confusionLog = [];
 
     testSet.forEach(test => {
         const prediction = machine.classify(test.points);
-        console.log(test.points);
-        console.log(prediction);
+        // console.log(test.points);
+        // console.log(prediction);
         if (prediction === test.label) {
             correct++;
+        } else {
+
+            // als het niet correct is zet in arrya
+            confusionLog.push({
+                actual: test.label,
+                predicted: prediction
+            });
         }
     });
 
@@ -216,6 +226,15 @@ document.getElementById("runTest").addEventListener("click", () => {
     console.log(`Accuracy: ${accuracy.toFixed(2)}%`);
 
     alert(`Model accuracy: ${accuracy.toFixed(2)}% (${correct}/${testSet.length} correct)`);
+
+    if (confusionLog.length > 0) {
+        console.log("❌ Misclassifications:");
+        confusionLog.forEach(entry => {
+            console.log(`Actual: ${entry.actual} → Predicted: ${entry.predicted}`);
+        });
+    } else {
+        console.log("🎉 No misclassifications! Good job!");
+    }
 });
 
 
