@@ -1,0 +1,148 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* Page Layout */
+body {
+    background-image: url("./src/ymcabackground.webp");
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: -4rem;
+    font-size:6rem;
+    color: orange;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Game UI Layout */
+#gameUI {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.videoView {
+    position: relative;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Canvas and Video */
+video, canvas {
+    width: 100%;
+    height: auto;
+}
+
+#myimage {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Feedback & Prompt */
+#posePrompt {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#timer {
+    font-size: 2rem;
+    margin: 10px auto;
+    font-weight: bold;
+    color: #d9534f;
+}
+
+#feedback {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+#checkmark {
+    font-size: 3rem;
+    color: green;
+    display: none;
+}
+
+/* Show class for checkmark */
+#checkmark.show {
+    display: block;
+    animation: pop 0.5s ease-out;
+}
+
+/* Animations */
+@keyframes pop {
+    0% { transform: scale(0.2); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Button */
+button#startButton {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button#startButton:hover {
+    background-color: #0056b3;
+}
+
+.videoView {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.videoView video,
+.videoView canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    transform: rotateY(180deg);
+}
+
+
+.webcam  {
+    position: relative;
+}
+
+.canvas {
+    position: absolute;
+}

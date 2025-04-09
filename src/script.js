@@ -118,10 +118,19 @@ function logAllPoses() {
                 label: label
             };
 
-            if (label === "Y") yArray.push(poseData);
-            else if (label === "M") mArray.push(poseData);
-            else if (label === "C") cArray.push(poseData);
-            else if (label === "A") aArray.push(poseData);
+            if (label === "Y") {
+                yArray.push(poseData);
+                dataY.push(poseData);
+            } else if (label === "M") {
+                mArray.push(poseData);
+                dataM.push(poseData);
+            } else if (label === "C") {
+                cArray.push(poseData);
+                dataC.push(poseData);
+            } else if (label === "A") {
+                aArray.push(poseData);
+                dataA.push(poseData);
+            }
 
             machine.learn(flatArray, label);
 

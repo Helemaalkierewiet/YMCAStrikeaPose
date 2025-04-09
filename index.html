@@ -10,11 +10,12 @@
 </head>
 <nav>
   <a href="./test.html">test</a>
+  <a href="./game.html">game</a>
 </nav>
 <body>
 
 <section>
-  <h1>Pose Classifier - Y M C A</h1>
+  <h1>Data filler / Accuracy tester</h1>
 
 
   <div class="trainSection">
@@ -31,10 +32,12 @@
 
       <button id="classifyButton">Classify Pose</button>
   </div>
+
+
+<div class="trainSection">
   <button id="jsonButton">Download JSON</button>
 
-
-  <label for="testLabel">Test label:</label>
+  <label id="labeltest" for="testLabel">Test label:</label>
   <select id="testLabel">
     <option value="Y">Y</option>
     <option value="M">M</option>
@@ -43,15 +46,15 @@
   </select>
   <button id="logTestData">Log Test Data</button>
   <button id="runTest">Run Accuracy Test</button>
-
+</div>
   <!-- Display classified letter -->
   <div id="classificationResult"></div>
 
 
   <div class="videoView">
-    <div style="position: relative;">
-      <video id="webcam" style="position: absolute;" muted autoplay playsinline></video>
-      <canvas id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
+    <div class="combiDiv">
+      <video id="webcam" style=""  class="webcam" muted autoplay playsinline></video>
+      <canvas id="output_canvas" style="" class="canvas" ></canvas>
       <div id="myimage">Tracking</div>
     </div>
   </div>

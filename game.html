@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>YMCA Pose Game</title>
+    <link rel="stylesheet" href="/game.css" />
+    <script defer type="module" src="/src/game.js"></script>
+</head>
+<nav>
+    <a href="./index.html">index</a>
+    <a href="./test.html">test</a>
+</nav>
+
+<body>
+<section>
+    <h1>YMCA Pose Game</h1>
+
+    <button id="startButton">Start Game</button>
+
+    <div id="gameUI" style="display: none;">
+        <div class="videoView">
+            <div style="position: relative;">
+                <video id="webcam" style="position: absolute;" muted autoplay playsinline class="cam"></video>
+                <canvas id="output_canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
+                <div id="myimage">Tracking</div>
+            </div>
+        </div>
+        <div id="checkmark">✅</div>
+        <div id="posePrompt">Get Ready...</div>
+        <div id="timer">5</div>
+        <div id="feedback"></div>
+    </div>
+</section>
+</body>
+</html>
