@@ -36,7 +36,7 @@ document.getElementById("startButton").addEventListener("click", async () => {
  // LOAD TRAINING DATA FROM JSON
  ********************************************************************/
 async function loadTrainingData() {
-    const response = await fetch("/src/data/handpose-data.json");
+    const response = await fetch("src/data/handpose-data.json");
     const data = await response.json();
 
     ["Y", "M", "C", "A"].forEach(label => {
