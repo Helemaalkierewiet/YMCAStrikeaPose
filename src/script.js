@@ -64,7 +64,14 @@ const createPoseLandmarker = async () => {
 async function enableCam() {
     webcamRunning = true;
     try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: { 
+                facingMode: "user", // "environment" for rear camera, "user" for front camera
+                width: { ideal: 1280 },  // Try setting width and height
+                height: { ideal: 720 }
+            },
+            audio: false
+        });
         video.srcObject = stream;
         video.addEventListener("loadeddata", () => {
             canvasElement.width = video.videoWidth;
@@ -72,9 +79,9 @@ async function enableCam() {
             document.querySelector(".videoView").style.height = video.videoHeight + "px";
             predictWebcam();
         });
-
     } catch (error) {
         console.error("Error accessing webcam:", error);
+        alert("Error accessing the webcam. Please check your permissions.");
     }
 }
 
